@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.schoovello.remotelauncher.host"
+    package="com.schoovello.remotelauncher.remote"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -7,21 +8,20 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="18" />
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <service android:name=".MainService" />
-
-        <receiver android:name="com.schoovello.remotelauncher.host.BootReceiver" >
+        <activity
+            android:name="com.schoovello.remotelauncher.remote.RemoteActivity"
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </receiver>
+        </activity>
     </application>
 
 </manifest>
